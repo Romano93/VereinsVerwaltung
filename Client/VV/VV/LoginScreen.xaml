@@ -1,0 +1,16 @@
+﻿<Window x:Class="VV.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VV"
+        mc:Ignorable="d"
+        Title="Vereinsverwaltung" Height="310.564" Width="551.911">
+    <Grid>
+        <ListBox Name="lsbClubs" HorizontalAlignment="Left" Height="103" Margin="10,41,0,0" VerticalAlignment="Top" Width="349"/>
+        <Label Content="Verfügbare Vereine:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="252"/>
+        <Button Content="Login" Name="btnLogin" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button Content="Neuer Verein hinzufügen" Name="btnNewClub" Margin="374,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160"/>
+        <Button Content="Schliessen" Name="btnClose" HorizontalAlignment="Left" Margin="199,170,0,0" VerticalAlignment="Top" Width="160"/>
+    </Grid>
+</Window>
