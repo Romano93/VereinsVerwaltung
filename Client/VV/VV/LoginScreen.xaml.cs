@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VV.ViewModels;
 
 namespace VV
 {
@@ -23,6 +24,7 @@ namespace VV
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new LoginWindowViewModel(this);
         }
     }
 }
