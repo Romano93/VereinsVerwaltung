@@ -24,8 +24,7 @@ namespace VV.ConfigWindow
     /// </summary>
     public partial class ConfigWindow : Window
     {
-        private LoginWindowViewModel loginWindowviewModel;        
-        private Config currentConfig;
+        private LoginWindowViewModel loginWindowviewModel;
 
         public ConfigWindow(LoginWindowViewModel LoginWindow, Config selectedCfg)
         {
@@ -46,42 +45,6 @@ namespace VV.ConfigWindow
         public ConfigWindow() // default ctor --> not used, just in case
         {
             InitializeComponent();
-        }
-
-        public void SaveBtnPressed()
-        {
-            SerializeConfig(currentConfig);
-        }
-
-        /// <summary>
-        /// Serializes any given config objekt to binary
-        /// </summary>
-        /// <param name="cfg">given config</param>
-        private void SerializeConfig(Config cfg)
-        {
-            // Logging
-            LoggingTool log = new LoggingTool();
-            log.Write("Initialize to serialize a config");
-
-            String configLocation = $"{Directory.GetCurrentDirectory()}\\Configs";
-            String fileWithLocation = $"{configLocation}\\{cfg.Name}";
-
-            FileStream fs = new FileStream(fileWithLocation, FileMode.OpenOrCreate);
-            BinaryFormatter formatter = new BinaryFormatter();
-            try
-            {
-                formatter.Serialize(fs, cfg);
-            }
-            catch (SerializationException e)
-            {
-                log.Write(e.ToString());
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-            log.Write("Config serialized");
         }
     }
 }

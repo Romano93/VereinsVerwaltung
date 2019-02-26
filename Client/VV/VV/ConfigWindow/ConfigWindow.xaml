@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VV.ConfigWindow"
         mc:Ignorable="d"
-        Title="Neuen Verein hinzufügen" Height="349.841" Width="618.283">
+        Title="Verein" Height="349.841" Width="618.283">
     <Grid>
         <Label Content="Vereinsname:" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txbClubName" DataContext="{Binding activeCfg.Name}" HorizontalAlignment="Left" Height="23" Margin="19,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
