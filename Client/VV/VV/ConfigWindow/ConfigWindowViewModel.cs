@@ -15,7 +15,6 @@ namespace VV.ConfigWindow
         //-----------------------------------------------------------------------------------------------------------
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Config activeCfg;
         private bool canExecute = true;
         private ConfigWindow myView;
         private LoginWindowViewModel loginViewModel;
@@ -28,6 +27,8 @@ namespace VV.ConfigWindow
                 return closeClick ?? (closeClick = new CustomCommand(() => CloseWindow(), canExecute));
             }
         }
+        //-----------------------------------------------------------------------------------------------------------
+        public Config activeCfg;
         //-----------------------------------------------------------------------------------------------------------
         private ICommand testConnection;
         public ICommand TestConnection
