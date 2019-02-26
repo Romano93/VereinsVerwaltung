@@ -15,8 +15,8 @@
         <TextBox HorizontalAlignment="Left" Name="txbDatabaseUrl" Height="23" Margin="299,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
         <Label Content="Port:" HorizontalAlignment="Left" Margin="299,106,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txbPort" HorizontalAlignment="Left" Height="23" Margin="299,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Verbindung testen" HorizontalAlignment="Left" Margin="19,187,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Speichern" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Abbrechen" Command="{Binding CloseClick}" HorizontalAlignment="Left" Margin="299,187,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Content="Verbindung testen" Name ="btnCheckConnection" Command="{Binding TestConnection}" HorizontalAlignment="Left" Margin="19,187,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Content="Speichern" Name="btnSave" Command="{Binding SaveClick}" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Content="Abbrechen" Name="btnAbort" Command="{Binding CloseClick}" HorizontalAlignment="Left" Margin="299,187,0,0" VerticalAlignment="Top" Width="216"/>
     </Grid>
 </Window>

@@ -27,18 +27,18 @@ namespace VV.ConfigWindow
         private LoginWindowViewModel loginWindowviewModel;        
         private Config currentConfig;
 
-        public ConfigWindow(LoginWindowViewModel LoginWindow)
+        public ConfigWindow(LoginWindowViewModel LoginWindow, Config selectedCfg)
         {
             InitializeComponent();
             loginWindowviewModel = LoginWindow;
-            Config activeConfig = LoginWindow.GetSelectedConfig();            
+            Config activeConfig = selectedCfg;
             if(activeConfig == null)
             {
-                this.DataContext = new ConfigWindowViewModel(this);
+                this.DataContext = new ConfigWindowViewModel(this, loginWindowviewModel);
             }
             else
             {
-                this.DataContext = new ConfigWindowViewModel(this, activeConfig);
+                this.DataContext = new ConfigWindowViewModel(this, loginWindowviewModel, activeConfig);
             }
             this.Show();
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace VV.ConfigWindow
 {
     [Serializable]
-    class Config
+    public class Config
     {
         public String User                          { get { return user; } set { user = value; } }
         public String Password                      { get { return password; } set { EncryptPassword(value); } } // from user input
