@@ -33,12 +33,15 @@ namespace VV.Tools
         public void Write(String txt)
         {
             // get rid of old stuff
-            long fileLength = new System.IO.FileInfo(logFileWithLocation).Length;
-            if(fileLength > 3000) 
+            if(File.Exists(logFileWithLocation))
             {
-                File.Delete(logFileSave);
-                System.IO.File.Move(logFileWithLocation, logFileSave);
-                File.Delete(logFileWithLocation);
+                long fileLength = new System.IO.FileInfo(logFileWithLocation).Length;
+                if (fileLength > 3000)
+                {
+                    File.Delete(logFileSave);
+                    System.IO.File.Move(logFileWithLocation, logFileSave);
+                    File.Delete(logFileWithLocation);
+                }
             }
             // write new stuff
             File.AppendAllText(logFileWithLocation, txt);

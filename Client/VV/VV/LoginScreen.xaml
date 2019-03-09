@@ -9,9 +9,9 @@
     <Grid>
         <ListBox Name="lsbClubs" HorizontalAlignment="Left" Height="103" Margin="10,41,0,0" VerticalAlignment="Top" Width="349"/>
         <Label Content="Verfügbare Vereine:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="252"/>
-        <Button Content="Login" Name="btnLogin" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="160"/>
-        <Button Content="Neuer Verein hinzufügen" Command ="{Binding CmdOpenConfigWindow}"  Name="btnNewClub" Margin="374,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="178"/>
-        <Button Content="Ausgewählten Verein anpassen" Command ="{Binding CmdOpenConfigWindowWithCfg}" HorizontalAlignment="Left" Margin="374,79,0,0" VerticalAlignment="Top" Width="178"/>
-        <Button Content="Schliessen" Name="btnClose" HorizontalAlignment="Left" Margin="199,170,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button Content="Login" Name="btnLogin" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="160" Click="btnLogin_Click"/>
+        <Button Content="Neuer Verein hinzufügen"  Name="btnNewClub" Margin="374,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="178" Click="btnNewClub_Click"/>
+        <Button Content="Ausgewählten Verein anpassen" Name="btnEditClub" HorizontalAlignment="Left" Margin="374,79,0,0" VerticalAlignment="Top" Width="178" Click="btnEditClub_Click"/>
+        <Button Content="Schliessen" Name="btnClose" HorizontalAlignment="Left" Margin="199,170,0,0" VerticalAlignment="Top" Width="160" Click="btnClose_Click"/>
     </Grid>
 </Window>

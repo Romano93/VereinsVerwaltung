@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VV.ViewModels;
+using VV.ConfigWindow;
 
 namespace VV
 {
@@ -21,10 +21,41 @@ namespace VV
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Config> cfgList;
+        private LoginWindowController controller;
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new LoginWindowViewModel(this);
+            controller = new LoginWindowController();
+        }
+
+        private void btnNewClub_Click(object sender, RoutedEventArgs e)
+        {
+            controller.NewClub();
+        }
+
+        private void btnEditClub_Click(object sender, RoutedEventArgs e)
+        {
+            int i = lsbClubs.SelectedIndex;
+            if(i > 0 && cfgList[i] != null)
+            {
+                controller.EditClub(cfgList[i]);
+            }
+            else
+            {
+                MessageBox.Show("Es wurde ein ungültigen Verein ausgewählt.", "Hinweis");
+            }
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            controller.Close();
+            this.Close();
         }
     }
 }

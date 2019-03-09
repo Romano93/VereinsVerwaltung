@@ -8,15 +8,17 @@
         Title="Verein" Height="349.841" Width="618.283">
     <Grid>
         <Label Content="Vereinsname:" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txbClubName" DataContext="{Binding activeCfg.Name}" HorizontalAlignment="Left" Height="23" Margin="19,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
-        <Label Content="Passwort:" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
-        <PasswordBox Name="password"  DataContext="{Binding activeCfg.Password}" Height="23" HorizontalAlignment="Left" Margin="19,137,0,0" VerticalAlignment="Top" Width="216"/>
+        <TextBox Name="txbClubName" DataContext="{Binding Path=activeCfg.User}" HorizontalAlignment="Left" Height="23" Margin="19,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
         <Label Content="Datenbank:" HorizontalAlignment="Left" Margin="299,27,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left"  DataContext="{Binding activeCfg.DatabaseUrl}" Name="txbDatabaseUrl" Height="23" Margin="299,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
+        <Label Content="DB User:" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txbDBUser" DataContext="{Binding activeCfg.User}" HorizontalAlignment="Left" Height="23" Margin="19,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
         <Label Content="Port:" HorizontalAlignment="Left" Margin="299,106,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txbPort" DataContext="{Binding activeCfg.Port}" HorizontalAlignment="Left" Height="23" Margin="299,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Verbindung testen" Name ="btnCheckConnection" Command="{Binding TestConnection}" HorizontalAlignment="Left" Margin="19,187,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Speichern" Name="btnSave" Command="{Binding SaveClick}" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Abbrechen" Name="btnAbort" Command="{Binding CloseClick}" HorizontalAlignment="Left" Margin="299,187,0,0" VerticalAlignment="Top" Width="216"/>
+        <Label Content="Passwort:" HorizontalAlignment="Left" Margin="19,174,0,0" VerticalAlignment="Top"/>
+        <PasswordBox Name="password"  DataContext="{Binding activeCfg.Password}" Height="23" HorizontalAlignment="Left" Margin="19,205,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Content="Verbindung testen" Name ="btnCheckConnection" Command="{Binding TestConnection}" HorizontalAlignment="Left" Margin="19,261,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Content="Speichern" Name="btnSave" Command="{Binding SaveClick}" HorizontalAlignment="Left" Margin="299,261,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Content="Abbrechen" Name="btnAbort" Command="{Binding CloseClick}" HorizontalAlignment="Left" Margin="299,208,0,0" VerticalAlignment="Top" Width="216"/>
     </Grid>
 </Window>

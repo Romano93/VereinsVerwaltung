@@ -15,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VV.Tools;
-using VV.ViewModels;
 
 namespace VV.ConfigWindow
 {
@@ -24,20 +23,22 @@ namespace VV.ConfigWindow
     /// </summary>
     public partial class ConfigWindow : Window
     {
-        private LoginWindowViewModel loginWindowviewModel;
+        private LoginWindowController loginWindowController;
+        private ConfigWindowController controller;
 
-        public ConfigWindow(LoginWindowViewModel LoginWindow, Config selectedCfg)
+        public ConfigWindow(LoginWindowController LoginWindow, Config selectedCfg)
         {
             InitializeComponent();
-            loginWindowviewModel = LoginWindow;
+            loginWindowController = LoginWindow;
             Config activeConfig = selectedCfg;
+            controller = new ConfigWindowController();
             if(activeConfig == null)
             {
-                this.DataContext = new ConfigWindowViewModel(this, loginWindowviewModel);
+                
             }
             else
             {
-                this.DataContext = new ConfigWindowViewModel(this, loginWindowviewModel, activeConfig);
+                
             }
             this.Show();
         }
@@ -45,6 +46,7 @@ namespace VV.ConfigWindow
         public ConfigWindow() // default ctor --> not used, just in case
         {
             InitializeComponent();
+            controller = new ConfigWindowController();
         }
     }
 }

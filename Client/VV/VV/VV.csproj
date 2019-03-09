@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,10 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConfigWindow\ConfigWindowViewModel.cs" />
+    <Compile Include="ConfigWindow\ConfigWindowController.cs" />
+    <Compile Include="LoginWindowController.cs" />
     <Compile Include="Tools\CustomCommand.cs" />
     <Compile Include="Tools\LoggingTool.cs" />
-    <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Page Include="ConfigWindow\ConfigWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
