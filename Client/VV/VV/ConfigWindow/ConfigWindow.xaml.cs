@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VV.Interfaces;
 using VV.Tools;
 
 namespace VV.ConfigWindow
@@ -21,7 +22,7 @@ namespace VV.ConfigWindow
     /// <summary>
     /// Interaktionslogik für ConfigWindow.xaml
     /// </summary>
-    public partial class ConfigWindow : Window
+    public partial class ConfigWindow : Window, IObserver
     {
         private LoginWindowController loginWindowController;
         private ConfigWindowController controller;
@@ -47,6 +48,21 @@ namespace VV.ConfigWindow
         {
             InitializeComponent();
             controller = new ConfigWindowController();
+        }
+
+        public void Subscribe()
+        {
+            controller.Subscribe(this);
+        }
+
+        public void UnSubscribe()
+        {
+            controller.UnSubscribe(this);
+        }
+
+        public void Update(List<IObservable> observables)
+        {
+
         }
     }
 }

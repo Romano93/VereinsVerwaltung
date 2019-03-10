@@ -37,7 +37,7 @@ namespace VV
         private void btnEditClub_Click(object sender, RoutedEventArgs e)
         {
             int i = lsbClubs.SelectedIndex;
-            if(i > 0 && cfgList[i] != null)
+            if(i > 0 && cfgList[i] != null) // just allow valid club
             {
                 controller.EditClub(cfgList[i]);
             }
@@ -54,7 +54,7 @@ namespace VV
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            controller.Close();
+            controller.Close(); // close config window, etc.
             this.Close();
         }
     }
