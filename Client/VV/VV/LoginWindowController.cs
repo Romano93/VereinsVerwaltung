@@ -35,5 +35,10 @@ namespace VV
         {
             myConfigWindow.Close();
         }
+
+        internal void TerminateConfigWindow()
+        {
+            myConfigWindow = null;
+        }
     }
 }

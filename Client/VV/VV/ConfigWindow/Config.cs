@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using VV.Interfaces;
+using VV.Tools;
 
 namespace VV.ConfigWindow 
 {
     [Serializable]
-    public class Config : INotifyPropertyChanged
+    public class Config
     {
         public string User
         {
@@ -20,7 +25,6 @@ namespace VV.ConfigWindow
             set
             {
                 user = value;
-                NotifyPropertyChanged("User");
             }
         }
         public string Password                      { get { return password; } set { password = value; } } // from user input
@@ -35,10 +39,24 @@ namespace VV.ConfigWindow
         private String databaseUrl;
         private String port;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        internal void Save()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            String configDirectory = $"{Directory.GetCurrentDirectory()}\\Config";
+            if(!Directory.Exists(configDirectory))
+            {
+                Directory.CreateDirectory(configDirectory);
+            }
+            FileStream fs = new FileStream(Name, FileMode.OpenOrCreate);
+            BinaryFormatter bf = new BinaryFormatter();
+            try
+            {
+                bf.Serialize(fs, this);
+            }
+            catch (SerializationException e)
+            {
+                LoggingTool lt = new LoggingTool();
+                lt.Write($"Failed To Serialize: {e.Message}");
+            }
         }
     }
 }

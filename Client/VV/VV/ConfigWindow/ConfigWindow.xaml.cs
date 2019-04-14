@@ -22,24 +22,25 @@ namespace VV.ConfigWindow
     /// <summary>
     /// Interaktionslogik für ConfigWindow.xaml
     /// </summary>
-    public partial class ConfigWindow : Window, IObserver
+    public partial class ConfigWindow : Window
     {
         private LoginWindowController loginWindowController;
         private ConfigWindowController controller;
+        private Config cfg;
 
         public ConfigWindow(LoginWindowController LoginWindow, Config selectedCfg)
         {
             InitializeComponent();
             loginWindowController = LoginWindow;
-            Config activeConfig = selectedCfg;
             controller = new ConfigWindowController();
-            if(activeConfig == null)
+            
+            if(selectedCfg != null) // set values of the selected config
             {
-                
-            }
-            else
-            {
-                
+                txbClubName.Text = selectedCfg.Name;
+                txbDatabaseUrl.Text = selectedCfg.DatabaseUrl;
+                txbPort.Text = selectedCfg.Port;
+                txbDBUser.Text = selectedCfg.User;
+                txbPassword.Password = selectedCfg.Password;
             }
             this.Show();
         }
@@ -50,19 +51,31 @@ namespace VV.ConfigWindow
             controller = new ConfigWindowController();
         }
 
-        public void Subscribe()
+        private void btnCheckConnection_Click(object sender, RoutedEventArgs e)
         {
-            controller.Subscribe(this);
+
         }
 
-        public void UnSubscribe()
+        private void btnAbort_Click(object sender, RoutedEventArgs e)
         {
-            controller.UnSubscribe(this);
+            loginWindowController.TerminateConfigWindow();
+            this.Close();
         }
 
-        public void Update(List<IObservable> observables)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            UpdateConfig();
+            cfg.Save();
+        }
 
+        private void UpdateConfig()
+        {
+            cfg = new Config();
+            cfg.DatabaseUrl = txbDatabaseUrl.Text;
+            cfg.Name = txbClubName.Text;
+            cfg.Port = txbPort.Text;
+            cfg.User = txbDBUser.Text;
+            cfg.Password = txbPassword.Password;
         }
     }
 }

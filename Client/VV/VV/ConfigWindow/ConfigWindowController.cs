@@ -10,17 +10,7 @@ namespace VV.ConfigWindow
     {
         public ConfigWindowController()
         {
-
-        }
-
-        internal void Subscribe(ConfigWindow configWindow)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void UnSubscribe(ConfigWindow configWindow)
-        {
-            throw new NotImplementedException();
+            
         }
     }
 }
