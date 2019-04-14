@@ -12,5 +12,10 @@ namespace VV.ConfigWindow
         {
             
         }
+
+        internal bool CheckConnection()
+        {
+
+        }
     }
 }

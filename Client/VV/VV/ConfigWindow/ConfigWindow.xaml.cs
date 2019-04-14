@@ -33,8 +33,9 @@ namespace VV.ConfigWindow
             InitializeComponent();
             loginWindowController = LoginWindow;
             controller = new ConfigWindowController();
-            
-            if(selectedCfg != null) // set values of the selected config
+            btnSave.IsEnabled = false;
+
+            if (selectedCfg != null) // set values of the selected config
             {
                 txbClubName.Text = selectedCfg.Name;
                 txbDatabaseUrl.Text = selectedCfg.DatabaseUrl;
@@ -53,7 +54,10 @@ namespace VV.ConfigWindow
 
         private void btnCheckConnection_Click(object sender, RoutedEventArgs e)
         {
-
+            if(controller.CheckConnection())
+            {
+                btnSave.IsEnabled = true;
+            }
         }
 
         private void btnAbort_Click(object sender, RoutedEventArgs e)
