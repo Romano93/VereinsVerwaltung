@@ -54,7 +54,8 @@ namespace VV.ConfigWindow
 
         private void btnCheckConnection_Click(object sender, RoutedEventArgs e)
         {
-            if(controller.CheckConnection())
+            UpdateConfig();
+            if (controller.CheckConnection(cfg))
             {
                 btnSave.IsEnabled = true;
             }
@@ -70,6 +71,7 @@ namespace VV.ConfigWindow
         {
             UpdateConfig();
             cfg.Save();
+            btnAbort_Click(null, null);
         }
 
         private void UpdateConfig()

@@ -71,11 +71,9 @@
     </ApplicationDefinition>
     <Compile Include="ConfigWindow\ConfigManager.cs" />
     <Compile Include="ConfigWindow\ConfigWindowController.cs" />
-    <Compile Include="DBTools\DBConnection.cs" />
     <Compile Include="Interfaces\IObservable.cs" />
     <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="LoginWindowController.cs" />
-    <Compile Include="Tools\CustomCommand.cs" />
     <Compile Include="Tools\LoggingTool.cs" />
     <Page Include="ConfigWindow\ConfigWindow.xaml">
       <SubType>Designer</SubType>
@@ -125,6 +123,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DBTools\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

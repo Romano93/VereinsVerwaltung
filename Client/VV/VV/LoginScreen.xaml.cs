@@ -27,6 +27,7 @@ namespace VV
         {
             InitializeComponent();
             controller = new LoginWindowController();
+            controller.RegisterConfigObserver(this);
         }
 
         private void btnNewClub_Click(object sender, RoutedEventArgs e)

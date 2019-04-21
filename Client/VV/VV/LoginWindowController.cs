@@ -25,6 +25,11 @@ namespace VV
             myConfigWindow = new ConfigWindow.ConfigWindow(this, config);
         }
 
+        internal void RegisterConfigObserver(MainWindow mainWindow)
+        {
+
+        }
+
         //-----------------------------------------------------------------------------------------------------------
         internal Config GetSelectedConfig()
         {
@@ -39,6 +44,6 @@ namespace VV
         internal void TerminateConfigWindow()
         {
             myConfigWindow = null;
-        }
+        }        
     }
 }

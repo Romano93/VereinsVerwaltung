@@ -20,7 +20,7 @@ namespace VV.ConfigWindow
         {
             get
             {
-                return "user";
+                return user;
             }
             set
             {
@@ -46,7 +46,7 @@ namespace VV.ConfigWindow
             {
                 Directory.CreateDirectory(configDirectory);
             }
-            FileStream fs = new FileStream(Name, FileMode.OpenOrCreate);
+            FileStream fs = new FileStream($"{configDirectory}\\{Name}.bin", FileMode.OpenOrCreate);
             BinaryFormatter bf = new BinaryFormatter();
             try
             {
